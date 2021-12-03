@@ -16,10 +16,9 @@ public class Action extends AbstractObject implements Serializable {
 
 	@JsonbProperty(value = ActionDto.JSON_IDENTIFIER) private String identifier;	
 	@JsonbProperty(value = ActionDto.JSON_CODE) private String code;	
-	@JsonbProperty(value = ActionDto.JSON_NAME) private String name;
-	
-	private Section section;
-	private BudgetSpecializationUnit budgetSpecializationUnit;
+	@JsonbProperty(value = ActionDto.JSON_NAME) private String name;	
+	@JsonbProperty(value = ActionDto.JSON_SECTION) private Section section;
+	@JsonbProperty(value = ActionDto.JSON_BUDGET_SPECIALIZATION_UNIT) private BudgetSpecializationUnit budgetSpecializationUnit;
 	
 	@Override
 	public String toString() {

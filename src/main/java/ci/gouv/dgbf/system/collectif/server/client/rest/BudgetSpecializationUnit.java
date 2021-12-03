@@ -17,8 +17,7 @@ public class BudgetSpecializationUnit extends AbstractObject implements Serializ
 	@JsonbProperty(value = BudgetSpecializationUnitDto.JSON_IDENTIFIER) private String identifier;	
 	@JsonbProperty(value = BudgetSpecializationUnitDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = BudgetSpecializationUnitDto.JSON_NAME) private String name;
-	
-	private Section section;
+	@JsonbProperty(value = BudgetSpecializationUnitDto.JSON_SECTION) private Section section;
 	
 	@Override
 	public String toString() {
