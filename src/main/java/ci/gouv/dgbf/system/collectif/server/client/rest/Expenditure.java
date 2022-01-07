@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.json.bind.annotation.JsonbProperty;
 
+import org.cyk.utility.__kernel__.DependencyInjection;
 import org.cyk.utility.__kernel__.object.AbstractObject;
+import org.cyk.utility.service.client.SpecificServiceGetter;
 
 import ci.gouv.dgbf.system.collectif.server.api.service.ExpenditureDto;
+import ci.gouv.dgbf.system.collectif.server.api.service.ExpenditureService;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -28,6 +31,22 @@ public class Expenditure extends AbstractObject implements Serializable {
 	@JsonbProperty(value = ExpenditureDto.JSON_FUNDING_SOURCE_AS_STRING) private String fundingSourceAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_LESSOR_AS_STRING) private String lessorAsString;
 	
+	public EntryAuthorization getEntryAuthorization(Boolean instantiateIfNull) {
+		if(entryAuthorization == null && Boolean.TRUE.equals(instantiateIfNull))
+			entryAuthorization = new EntryAuthorization();
+		return entryAuthorization;
+	}
+	
+	public PaymentCredit getPaymentCredit(Boolean instantiateIfNull) {
+		if(paymentCredit == null && Boolean.TRUE.equals(instantiateIfNull))
+			paymentCredit = new PaymentCredit();
+		return paymentCredit;
+	}
+	
+	public static ExpenditureService getService() {
+		return (ExpenditureService) DependencyInjection.inject(SpecificServiceGetter.class).get(Expenditure.class);
+	}
+	
 	public static final String FIELD_IDENTIFIER = "identifier";
 	public static final String FIELD_BUDGETARY_ACT_AS_STRING = "budgetaryActAsString";
 	public static final String FIELD_BUDGETARY_ACT_VERSION_AS_STRING = "budgetaryActVersionAsString";
@@ -41,4 +60,7 @@ public class Expenditure extends AbstractObject implements Serializable {
 	public static final String FIELD_LESSOR_AS_STRING = "lessorAsString";
 	public static final String FIELD_ENTRY_AUTHORIZATION = "entryAuthorization";
 	public static final String FIELD_PAYMENT_CREDIT = "paymentCredit";
+	
+	public static final String FIELD_ENTRY_AUTHORIZATION_ADJUSTMENT = "entryAuthorizationAdjustment";
+	public static final String FIELD_PAYMENT_CREDIT_ADJUSTMENT = "paymentCreditAdjustment";
 }

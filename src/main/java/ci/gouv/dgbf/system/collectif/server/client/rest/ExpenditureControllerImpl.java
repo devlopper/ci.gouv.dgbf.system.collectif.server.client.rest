@@ -1,0 +1,54 @@
+package ci.gouv.dgbf.system.collectif.server.client.rest;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
+
+import org.cyk.utility.__kernel__.collection.CollectionHelper;
+import org.cyk.utility.rest.ResponseHelper;
+import org.cyk.utility.service.client.SpecificController;
+
+import ci.gouv.dgbf.system.collectif.server.api.service.ExpenditureDto;
+
+@ApplicationScoped
+public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<Expenditure> implements ExpenditureController,Serializable {
+
+	@Override
+	public Response adjust(Collection<Expenditure> expenditures) {
+		try {
+			return Expenditure.getService().adjust(mapToAjustmentsDto(expenditures));
+		} catch (WebApplicationException exception) {
+			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
+		}
+	}
+	
+	@Override
+	public Response adjustByEntryAuthorizations(Collection<Expenditure> expenditures) {
+		try {
+			return Expenditure.getService().adjustByEntryAuthorizations(mapToAjustmentsDto(expenditures));
+		} catch (WebApplicationException exception) {
+			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
+		}
+	}
+	
+	private static List<ExpenditureDto.AdjustmentDto> mapToAjustmentsDto(Collection<Expenditure> expenditures) {
+		if(CollectionHelper.isEmpty(expenditures))
+			return null;
+		return expenditures.stream().map(expenditure -> new ExpenditureDto.AdjustmentDto()
+				.setIdentifier(expenditure.getIdentifier())
+				.setEntryAuthorization(expenditure.getEntryAuthorization() == null ? null : expenditure.getEntryAuthorization().getAdjustment())
+				.setPaymentCredit(expenditure.getPaymentCredit() == null ? null : expenditure.getPaymentCredit().getAdjustment())
+				).collect(Collectors.toList());
+	}
+	
+	@Override
+	protected Class<Expenditure> getEntityClass() {
+		return Expenditure.class;
+	}
+
+}

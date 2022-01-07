@@ -19,7 +19,7 @@ public class ExpenditureNature extends AbstractObject implements Serializable {
 	@JsonbProperty(value = ExpenditureNatureDto.JSON_NAME) private String name;
 	
 	public Boolean isInvestment() {
-		return null;
+		return ci.gouv.dgbf.system.collectif.server.api.persistence.ExpenditureNature.CODE_INVESTMENT.equals(code);
 	}
 	
 	@Override
