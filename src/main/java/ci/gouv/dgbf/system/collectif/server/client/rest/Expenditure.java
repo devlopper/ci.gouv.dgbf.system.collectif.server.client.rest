@@ -20,8 +20,8 @@ public class Expenditure extends AbstractObject implements Serializable {
 	@JsonbProperty(value = ExpenditureDto.JSON_IDENTIFIER) private String identifier;	
 	@JsonbProperty(value = ExpenditureDto.JSON_ENTRY_AUTHORIZATION) private EntryAuthorization entryAuthorization;	
 	@JsonbProperty(value = ExpenditureDto.JSON_PAYMENT_CREDIT) private PaymentCredit paymentCredit;
-	@JsonbProperty(value = ExpenditureDto.JSON_BUDGETARY_ACT_AS_STRING) private String budgetaryActAsString;
-	@JsonbProperty(value = ExpenditureDto.JSON_BUDGETARY_ACT_VERSION_AS_STRING) private String budgetaryActVersionAsString;
+	@JsonbProperty(value = ExpenditureDto.JSON_BUDGETARY_ACT_AS_STRING) private String actAsString;
+	@JsonbProperty(value = ExpenditureDto.JSON_BUDGETARY_ACT_VERSION_AS_STRING) private String actVersionAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_SECTION_AS_STRING) private String sectionAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_NATURE_AS_STRING) private String natureAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_BUDGET_SPECIALIZATION_UNIT_AS_STRING) private String budgetSpecializationUnitAsString;
@@ -48,8 +48,8 @@ public class Expenditure extends AbstractObject implements Serializable {
 	}
 	
 	public static final String FIELD_IDENTIFIER = "identifier";
-	public static final String FIELD_BUDGETARY_ACT_AS_STRING = "budgetaryActAsString";
-	public static final String FIELD_BUDGETARY_ACT_VERSION_AS_STRING = "budgetaryActVersionAsString";
+	public static final String FIELD_BUDGETARY_ACT_AS_STRING = "actAsString";
+	public static final String FIELD_BUDGETARY_ACT_VERSION_AS_STRING = "actVersionAsString";
 	public static final String FIELD_SECTION_AS_STRING = "sectionAsString";
 	public static final String FIELD_NATURE_AS_STRING = "natureAsString";
 	public static final String FIELD_BUDGET_SPECIALIZATION_UNIT_AS_STRING = "budgetSpecializationUnitAsString";

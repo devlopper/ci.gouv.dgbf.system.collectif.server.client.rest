@@ -7,11 +7,11 @@ import javax.enterprise.context.ApplicationScoped;
 import org.cyk.utility.service.client.SpecificController;
 
 @ApplicationScoped
-public class BudgetaryActControllerImpl extends SpecificController.AbstractImpl<BudgetaryAct> implements BudgetaryActController,Serializable {
+public class LegislativeActControllerImpl extends SpecificController.AbstractImpl<LegislativeAct> implements LegislativeActController,Serializable {
 
 	@Override
-	protected Class<BudgetaryAct> getEntityClass() {
-		return BudgetaryAct.class;
+	protected Class<LegislativeAct> getEntityClass() {
+		return LegislativeAct.class;
 	}
 
 }
