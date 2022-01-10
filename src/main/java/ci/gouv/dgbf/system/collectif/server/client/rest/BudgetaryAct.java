@@ -1,9 +1,12 @@
 package ci.gouv.dgbf.system.collectif.server.client.rest;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.json.bind.annotation.JsonbProperty;
 
+import org.cyk.utility.__kernel__.DependencyInjection;
+import org.cyk.utility.__kernel__.collection.CollectionHelper;
 import org.cyk.utility.__kernel__.object.AbstractObject;
 
 import ci.gouv.dgbf.system.collectif.server.api.service.BudgetaryActDto;
@@ -18,6 +21,12 @@ public class BudgetaryAct extends AbstractObject implements Serializable {
 	@JsonbProperty(value = BudgetaryActDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = BudgetaryActDto.JSON_NAME) private String name;
 	//@JsonbProperty(value = BudgetaryActDto.JSON_BUDGETARY_ACT_VERSIONS) private List<BudgetaryActVersion> budgetaryActVersions;
+	
+	public static Collection<BudgetaryAct> buildChoices() { 
+		Collection<BudgetaryAct> choices = DependencyInjection.inject(BudgetaryActController.class).get();
+		CollectionHelper.addNullAtFirstIfSizeGreaterThanOne(choices);
+		return choices;
+	}
 	
 	@Override
 	public String toString() {
