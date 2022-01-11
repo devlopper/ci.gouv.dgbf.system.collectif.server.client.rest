@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 import javax.json.bind.annotation.JsonbProperty;
 
+import org.cyk.utility.__kernel__.DependencyInjection;
 import org.cyk.utility.__kernel__.object.AbstractObject;
+import org.cyk.utility.service.client.SpecificServiceGetter;
 
 import ci.gouv.dgbf.system.collectif.server.api.service.RegulatoryActDto;
+import ci.gouv.dgbf.system.collectif.server.api.service.RegulatoryActService;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -26,6 +29,10 @@ public class RegulatoryAct extends AbstractObject implements Serializable {
 	@Override
 	public String toString() {
 		return code+" "+name;
+	}
+	
+	public static RegulatoryActService getService() {
+		return (RegulatoryActService) DependencyInjection.inject(SpecificServiceGetter.class).get(RegulatoryAct.class);
 	}
 	
 	public static final String FIELD_IDENTIFIER = "identifier";
