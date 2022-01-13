@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 
 import org.cyk.utility.__kernel__.collection.CollectionHelper;
 import org.cyk.utility.__kernel__.field.FieldHelper;
+import org.cyk.utility.__kernel__.session.SessionHelper;
 import org.cyk.utility.rest.ResponseHelper;
 import org.cyk.utility.service.client.SpecificController;
 
@@ -19,7 +20,7 @@ public class RegulatoryActControllerImpl extends SpecificController.AbstractImpl
 	@Override
 	public Response include(Collection<RegulatoryAct> regulatoryActs, LegislativeActVersion legislativeActVersion,Boolean existingIgnorable) {
 		try {
-			return RegulatoryAct.getService().include((List<String>) FieldHelper.readSystemIdentifiersAsStrings(regulatoryActs), legislativeActVersion.getIdentifier(), existingIgnorable);
+			return RegulatoryAct.getService().include((List<String>) FieldHelper.readSystemIdentifiersAsStrings(regulatoryActs), legislativeActVersion.getIdentifier(), existingIgnorable,SessionHelper.getUserName());
 		} catch (WebApplicationException exception) {
 			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
 		}
@@ -37,7 +38,7 @@ public class RegulatoryActControllerImpl extends SpecificController.AbstractImpl
 	@Override
 	public Response exclude(Collection<RegulatoryAct> regulatoryActs, LegislativeActVersion legislativeActVersion,Boolean existingIgnorable) {
 		try {
-			return RegulatoryAct.getService().exclude((List<String>) FieldHelper.readSystemIdentifiersAsStrings(regulatoryActs), legislativeActVersion.getIdentifier(), existingIgnorable);
+			return RegulatoryAct.getService().exclude((List<String>) FieldHelper.readSystemIdentifiersAsStrings(regulatoryActs), legislativeActVersion.getIdentifier(), existingIgnorable,SessionHelper.getUserName());
 		} catch (WebApplicationException exception) {
 			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
 		}

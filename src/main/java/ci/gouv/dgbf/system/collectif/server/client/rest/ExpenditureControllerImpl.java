@@ -10,6 +10,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
 import org.cyk.utility.__kernel__.collection.CollectionHelper;
+import org.cyk.utility.__kernel__.session.SessionHelper;
 import org.cyk.utility.rest.ResponseHelper;
 import org.cyk.utility.service.client.SpecificController;
 
@@ -21,7 +22,7 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 	@Override
 	public Response adjust(Collection<Expenditure> expenditures) {
 		try {
-			return Expenditure.getService().adjust(mapToAjustmentsDto(expenditures));
+			return Expenditure.getService().adjust(mapToAjustmentsDto(expenditures),SessionHelper.getUserName());
 		} catch (WebApplicationException exception) {
 			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
 		}
@@ -30,7 +31,7 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 	@Override
 	public Response adjustByEntryAuthorizations(Collection<Expenditure> expenditures) {
 		try {
-			return Expenditure.getService().adjustByEntryAuthorizations(mapToAjustmentsDto(expenditures));
+			return Expenditure.getService().adjustByEntryAuthorizations(mapToAjustmentsDto(expenditures),SessionHelper.getUserName());
 		} catch (WebApplicationException exception) {
 			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
 		}
