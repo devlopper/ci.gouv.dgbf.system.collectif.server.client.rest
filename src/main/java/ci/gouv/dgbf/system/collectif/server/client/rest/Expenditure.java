@@ -31,6 +31,12 @@ public class Expenditure extends AbstractObject implements Serializable {
 	@JsonbProperty(value = ExpenditureDto.JSON_FUNDING_SOURCE_AS_STRING) private String fundingSourceAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_LESSOR_AS_STRING) private String lessorAsString;
 	
+	@JsonbProperty(value = ExpenditureDto.JSON___AUDIT__) String __audit__;
+	@JsonbProperty(value = ExpenditureDto.JSON___AUDIT_WHO__) String __auditWho__;
+	@JsonbProperty(value = ExpenditureDto.JSON___AUDIT_FUNCTIONALITY__) String __auditFunctionality__;
+	@JsonbProperty(value = ExpenditureDto.JSON___AUDIT_WHAT__) String __auditWhat__;
+	@JsonbProperty(value = ExpenditureDto.JSON___AUDIT_WHEN__) String __auditWhen__;
+	
 	public EntryAuthorization getEntryAuthorization(Boolean instantiateIfNull) {
 		if(entryAuthorization == null && Boolean.TRUE.equals(instantiateIfNull))
 			entryAuthorization = new EntryAuthorization();
@@ -60,6 +66,7 @@ public class Expenditure extends AbstractObject implements Serializable {
 	public static final String FIELD_LESSOR_AS_STRING = "lessorAsString";
 	public static final String FIELD_ENTRY_AUTHORIZATION = "entryAuthorization";
 	public static final String FIELD_PAYMENT_CREDIT = "paymentCredit";
+	public static final String FIELD___AUDIT__ = "__audit__";
 	
 	public static final String FIELD_ENTRY_AUTHORIZATION_ADJUSTMENT = "entryAuthorizationAdjustment";
 	public static final String FIELD_PAYMENT_CREDIT_ADJUSTMENT = "paymentCreditAdjustment";
