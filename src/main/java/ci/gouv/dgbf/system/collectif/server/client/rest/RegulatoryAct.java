@@ -25,6 +25,7 @@ public class RegulatoryAct extends AbstractObject implements Serializable {
 	@JsonbProperty(value = RegulatoryActDto.JSON_PAYMENT_CREDIT_AMOUNT) private Long paymentCreditAmount;
 	@JsonbProperty(value = RegulatoryActDto.JSON_INCLUDED) private Boolean included;
 	@JsonbProperty(value = RegulatoryActDto.JSON_INCLUDED_AS_STRING) private String includedAsString;
+	@JsonbProperty(value = RegulatoryActDto.JSON___AUDIT__) private String audit;
 	
 	@Override
 	public String toString() {
@@ -43,4 +44,5 @@ public class RegulatoryAct extends AbstractObject implements Serializable {
 	public static final String FIELD_PAYMENT_CREDIT_AMOUNT = "paymentCreditAmount";
 	public static final String FIELD_INCLUDED = "included";
 	public static final String FIELD_INCLUDED_AS_STRING = "includedAsString";
+	public static final String FIELD_AUDIT = "audit";
 }
