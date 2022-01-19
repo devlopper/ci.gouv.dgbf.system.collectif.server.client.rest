@@ -9,4 +9,9 @@ import lombok.experimental.Accessors;
 @Getter @Setter @Accessors(chain=true)
 public class Revenue extends ResourceAmounts implements Serializable {
 
+	@Override
+	public Revenue setAdjustment(Long adjustment) {
+		return (Revenue) super.setAdjustment(adjustment);
+	}
+	
 }
