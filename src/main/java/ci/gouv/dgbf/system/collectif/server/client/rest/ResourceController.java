@@ -8,8 +8,8 @@ import org.cyk.utility.service.client.SpecificController;
 
 public interface ResourceController extends SpecificController<Resource> {
 
-	Response adjust(Collection<Resource> resources,String auditActor);
+	Response adjust(Collection<Resource> resources,String auditWho);
 	Response adjust(Collection<Resource> resources);
-	Response adjust(String auditActor,Resource...resources);
+	Response adjust(String auditWho,Resource...resources);
 	Response adjust(Resource...resources);
 }

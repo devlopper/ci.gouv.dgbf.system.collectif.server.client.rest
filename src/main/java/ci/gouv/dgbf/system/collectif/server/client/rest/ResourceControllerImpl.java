@@ -21,9 +21,9 @@ import ci.gouv.dgbf.system.collectif.server.api.service.ResourceDto;
 public class ResourceControllerImpl extends SpecificController.AbstractImpl<Resource> implements ResourceController,Serializable {
 
 	@Override
-	public Response adjust(Collection<Resource> resources,String auditActor) {
+	public Response adjust(Collection<Resource> resources,String auditWho) {
 		try {
-			return Resource.getService().adjust(mapToAjustmentsDto(resources),auditActor);
+			return Resource.getService().adjust(mapToAjustmentsDto(resources),auditWho);
 		} catch (WebApplicationException exception) {
 			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
 		}
@@ -35,8 +35,8 @@ public class ResourceControllerImpl extends SpecificController.AbstractImpl<Reso
 	}
 	
 	@Override
-	public Response adjust(String auditActor,Resource... resources) {
-		return adjust(ArrayHelper.isEmpty(resources) ? null : CollectionHelper.listOf(Boolean.TRUE, resources),auditActor);
+	public Response adjust(String auditWho,Resource... resources) {
+		return adjust(ArrayHelper.isEmpty(resources) ? null : CollectionHelper.listOf(Boolean.TRUE, resources),auditWho);
 	}
 	
 	@Override
