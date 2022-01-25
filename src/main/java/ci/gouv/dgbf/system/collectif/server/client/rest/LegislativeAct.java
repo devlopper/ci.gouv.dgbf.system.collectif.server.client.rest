@@ -20,6 +20,9 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	@JsonbProperty(value = LegislativeActDto.JSON_IDENTIFIER) private String identifier;	
 	@JsonbProperty(value = LegislativeActDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = LegislativeActDto.JSON_NAME) private String name;
+	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE) private Exercise exercise;
+	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_YEAR) private String exerciseYear;
+	@JsonbProperty(value = LegislativeActDto.JSON___AUDIT__) String __audit__;
 	
 	public static Collection<LegislativeAct> buildChoices() { 
 		Collection<LegislativeAct> choices = DependencyInjection.inject(LegislativeActController.class).get();
@@ -31,4 +34,11 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	public String toString() {
 		return name;
 	}
+	
+	public static final String FIELD_IDENTIFIER = "identifier";
+	public static final String FIELD_CODE = "code";
+	public static final String FIELD_NAME = "name";
+	public static final String FIELD_EXERCISE = "exercise";
+	public static final String FIELD_EXERCISE_YEAR = "exercise_year";
+	public static final String FIELD___AUDIT__ = "__audit__";
 }
