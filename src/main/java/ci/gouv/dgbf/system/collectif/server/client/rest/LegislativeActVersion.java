@@ -19,6 +19,9 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_NAME) private String name;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_BUDGETARY_ACT) private LegislativeAct act;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_BUDGETARY_ACT_IDENTIFIER) private String actIdentifier;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_COUNT) private Short generatedActCount;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_ACT_GENERATABLE) private Boolean actGeneratable;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_DELETABLE) private Boolean generatedActDeletable;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON___AUDIT__) String __audit__;
 	
 	@Override
@@ -31,5 +34,6 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	public static final String FIELD_NAME = "name";
 	public static final String FIELD_ACT = "act";
 	public static final String FIELD_ACT_IDENTIFIER = "actIdentifier";
+	public static final String FIELD_GENERATED_ACT_COUNT = "generatedActCount";
 	public static final String FIELD___AUDIT__ = "__audit__";
 }

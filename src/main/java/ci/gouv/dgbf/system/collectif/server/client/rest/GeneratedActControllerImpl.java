@@ -6,6 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
+import org.cyk.utility.__kernel__.session.SessionHelper;
 import org.cyk.utility.rest.ResponseHelper;
 import org.cyk.utility.service.client.SpecificController;
 
@@ -27,6 +28,11 @@ public class GeneratedActControllerImpl extends SpecificController.AbstractImpl<
 	}
 	
 	@Override
+	public Response generateByLegislativeActVersion(LegislativeActVersion legislativeActVersion) {
+		return generateByLegislativeActVersion(legislativeActVersion, SessionHelper.getUserName());
+	}
+	
+	@Override
 	public Response deleteByLegislativeActVersionIdentifier(String legislativeActVersionIdentifier, String auditWho) {
 		try {
 			return GeneratedAct.getService().deleteByLegislativeActVersionIdentifier(legislativeActVersionIdentifier, auditWho);
@@ -38,6 +44,11 @@ public class GeneratedActControllerImpl extends SpecificController.AbstractImpl<
 	@Override
 	public Response deleteByLegislativeActVersion(LegislativeActVersion legislativeActVersion, String auditWho) {
 		return deleteByLegislativeActVersionIdentifier(legislativeActVersion == null ? null : legislativeActVersion.getIdentifier(), auditWho);
+	}
+	
+	@Override
+	public Response deleteByLegislativeActVersion(LegislativeActVersion legislativeActVersion) {
+		return deleteByLegislativeActVersion(legislativeActVersion, SessionHelper.getUserName());
 	}
 	
 	@Override
