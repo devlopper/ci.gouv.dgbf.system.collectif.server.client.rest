@@ -1,7 +1,17 @@
 package ci.gouv.dgbf.system.collectif.server.client.rest;
 
+import javax.ws.rs.core.Response;
+
 import org.cyk.utility.service.client.SpecificController;
 
 public interface LegislativeActController extends SpecificController<LegislativeAct> {
+
+	Response create(String code,String name,String exerciseIdentifier);
+	Response create(LegislativeAct legislativeAct);
 	
+	Response updateDefaultVersion(String legislativeActIdentifier,String legislativeActVersionIdentifier);
+	Response updateDefaultVersion(LegislativeAct legislativeAct,LegislativeActVersion legislativeActVersion);
+	
+	Response updateInProgress(String legislativeActIdentifier,Boolean inProgress);
+	Response updateInProgress(LegislativeAct legislativeAct);
 }
