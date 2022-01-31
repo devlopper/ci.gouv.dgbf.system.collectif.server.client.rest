@@ -24,7 +24,7 @@ public class Exercise extends AbstractObject implements Serializable {
 	
 	@Override
 	public String toString() {
-		return name;
+		return year == null ? name : year.toString();
 	}
 	
 	public static Collection<Exercise> buildChoices() { 
