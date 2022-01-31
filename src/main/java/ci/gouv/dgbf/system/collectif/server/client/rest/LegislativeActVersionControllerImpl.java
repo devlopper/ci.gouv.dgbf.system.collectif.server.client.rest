@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.core.Response;
 
+import org.cyk.utility.__kernel__.session.SessionHelper;
 import org.cyk.utility.service.client.SpecificController;
 
 import ci.gouv.dgbf.system.collectif.server.api.persistence.Parameters;
@@ -18,8 +20,23 @@ public class LegislativeActVersionControllerImpl extends SpecificController.Abst
 	}
 
 	@Override
+	public Response create(String code, String name, Byte number, String legislativeActIdentifier) {
+		return serve(new Service() {
+			@Override
+			public Response execute() {
+				return LegislativeActVersion.getService().create(code, name, number, legislativeActIdentifier, SessionHelper.getUserName());
+			}		
+		});
+	}
+
+	@Override
+	public Response create(LegislativeActVersion legislativeActVersion) {
+		return create(legislativeActVersion == null ? null : legislativeActVersion.getCode(),legislativeActVersion == null ? null : legislativeActVersion.getName()
+				,legislativeActVersion == null ? null : legislativeActVersion.getNumber(),legislativeActVersion == null || legislativeActVersion.getAct() == null? null : legislativeActVersion.getAct().getIdentifier());
+	}
+	
+	@Override
 	protected Class<LegislativeActVersion> getEntityClass() {
 		return LegislativeActVersion.class;
 	}
-
 }

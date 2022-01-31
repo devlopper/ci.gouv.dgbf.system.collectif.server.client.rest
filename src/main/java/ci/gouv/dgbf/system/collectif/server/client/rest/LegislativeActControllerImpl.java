@@ -16,7 +16,7 @@ public class LegislativeActControllerImpl extends SpecificController.AbstractImp
 		return serve(new Service() {			
 			@Override
 			public Response execute() {
-				return LegislativeAct.getService().create(exerciseIdentifier, name, exerciseIdentifier, SessionHelper.getUserName());
+				return LegislativeAct.getService().create(code, name, exerciseIdentifier, SessionHelper.getUserName());
 			}
 		});
 	}
