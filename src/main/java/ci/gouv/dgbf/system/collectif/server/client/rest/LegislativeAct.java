@@ -23,7 +23,9 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	@JsonbProperty(value = LegislativeActDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = LegislativeActDto.JSON_NAME) private String name;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE) private Exercise exercise;
-	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_YEAR) private String exerciseYear;
+	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_YEAR) private Short exerciseYear;
+	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_AS_STRING) private String exerciseAsString;
+	@JsonbProperty(value = LegislativeActDto.JSON_DEFAULT_VERSION_AS_STRING) private String defaultVersionAsString;
 	@JsonbProperty(value = LegislativeActDto.JSON_IN_PROGRESS) private Boolean inProgress;
 	@JsonbProperty(value = LegislativeActDto.JSON_IN_PROGRESS_AS_STRING) private String inProgressAsString;
 	@JsonbProperty(value = LegislativeActDto.JSON___AUDIT__) private String __audit__;
@@ -52,6 +54,8 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	public static final String FIELD_IN_PROGRESS_AS_STRING = "inProgressAsString";
 	public static final String FIELD_EXERCISE = "exercise";
 	public static final String FIELD_EXERCISE_YEAR = "exerciseYear";
+	public static final String FIELD_EXERCISE_AS_STRING = "exerciseAsString";
+	public static final String FIELD_DEFAULT_VERSION_AS_STRING = "defaultVersionAsString";
 	public static final String FIELD_ENTRY_AUTHORIZATION = "entryAuthorization";
 	public static final String FIELD_PAYMENT_CREDIT = "paymentCredit";
 	public static final String FIELD___AUDIT__ = "__audit__";
