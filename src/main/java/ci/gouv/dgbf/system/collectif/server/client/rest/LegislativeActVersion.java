@@ -23,9 +23,14 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_NUMBER) private Byte number;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT) private LegislativeAct act;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_IDENTIFIER) private String actIdentifier;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_AS_STRING) private String actAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_COUNT) private Short generatedActCount;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_ACT_GENERATABLE) private Boolean actGeneratable;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_ACT_GENERATABLE_AS_STRING) private String actGeneratableAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_DELETABLE) private Boolean generatedActDeletable;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_DELETABLE_AS_STRING) private String generatedActDeletableAsString;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_ENTRY_AUTHORIZATION) private EntryAuthorization entryAuthorization;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_PAYMENT_CREDIT) private PaymentCredit paymentCredit;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON___AUDIT__) String __audit__;
 	
 	@Override
@@ -40,8 +45,14 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	public static final String FIELD_IDENTIFIER = "identifier";
 	public static final String FIELD_CODE = "code";
 	public static final String FIELD_NAME = "name";
+	public static final String FIELD_NUMBER = "number";
 	public static final String FIELD_ACT = "act";
+	public static final String FIELD_ACT_AS_STRING = "actAsString";
 	public static final String FIELD_ACT_IDENTIFIER = "actIdentifier";
 	public static final String FIELD_GENERATED_ACT_COUNT = "generatedActCount";
+	public static final String FIELD_ACT_GENERATABLE = "actGeneratable";
+	public static final String FIELD_ACT_GENERATABLE_AS_STRING = "actGeneratableAsString";
+	public static final String FIELD_GENERATED_ACT_DELETABLE = "generatedActDeletable";
+	public static final String FIELD_GENERATED_ACT_DELETABLE_AS_STRING = "generatedActDeletableAsString";
 	public static final String FIELD___AUDIT__ = "__audit__";
 }

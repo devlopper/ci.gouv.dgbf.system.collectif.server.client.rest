@@ -15,6 +15,8 @@ import lombok.experimental.Accessors;
 public class Amounts extends AbstractObject implements Serializable {
 
 	@JsonbProperty(value = AmountsDto.JSON_ADJUSTMENT) private Long adjustment;
+	@JsonbProperty(value = AmountsDto.JSON_EXPECTED_ADJUSTMENT) private Long expectedAdjustment;
+	@JsonbProperty(value = AmountsDto.JSON_EXPECTED_ADJUSTMENT_MINUS_ADJUSTMENT) private Long expectedAdjustmentMinusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_INITIAL) private Long initial;
 	@JsonbProperty(value = AmountsDto.JSON_MOVEMENT) private Long movement;
 	@JsonbProperty(value = AmountsDto.JSON_MOVEMENT_INCLUDED) private Long movementIncluded;
@@ -25,6 +27,8 @@ public class Amounts extends AbstractObject implements Serializable {
 	@JsonbProperty(value = AmountsDto.JSON_AVAILABLE) private Long available;
 	
 	public static final String FIELD_ADJUSTMENT = "adjustment";
+	public static final String FIELD_EXPECTED_ADJUSTMENT = "expectedAdjustment";
+	public static final String FIELD_EXPECTED_ADJUSTMENT_MINUS_ADJUSTMENT = "expectedAdjustmentMinusAdjustment";
 	public static final String FIELD_INITIAL = "initial";
 	public static final String FIELD_MOVEMENT = "movement";
 	public static final String FIELD_MOVEMENT_INCLUDED = "movementIncluded";
