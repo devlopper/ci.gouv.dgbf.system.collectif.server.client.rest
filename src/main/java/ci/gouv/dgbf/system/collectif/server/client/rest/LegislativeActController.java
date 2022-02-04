@@ -9,8 +9,8 @@ public interface LegislativeActController extends SpecificController<Legislative
 	Response create(String code,String name,String exerciseIdentifier);
 	Response create(LegislativeAct legislativeAct);
 	
-	Response updateDefaultVersion(String legislativeActIdentifier,String legislativeActVersionIdentifier);
-	Response updateDefaultVersion(LegislativeAct legislativeAct,LegislativeActVersion legislativeActVersion);
+	Response updateDefaultVersion(String legislativeActVersionIdentifier);
+	Response updateDefaultVersion(LegislativeActVersion legislativeActVersion);
 	
 	Response updateInProgress(String legislativeActIdentifier,Boolean inProgress);
 	Response updateInProgress(LegislativeAct legislativeAct);

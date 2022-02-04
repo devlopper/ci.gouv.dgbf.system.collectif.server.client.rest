@@ -11,4 +11,6 @@ public interface ExpenditureController extends SpecificController<Expenditure> {
 	Response adjust(Collection<Expenditure> expenditures);
 	
 	Response adjustByEntryAuthorizations(Collection<Expenditure> expenditures);
+	
+	Response import_(String legislativeActVersionIdentifier);
 }

@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 import org.cyk.utility.__kernel__.collection.CollectionHelper;
 import org.cyk.utility.__kernel__.session.SessionHelper;
 import org.cyk.utility.rest.ResponseHelper;
+import org.cyk.utility.service.client.Controller;
 import org.cyk.utility.service.client.SpecificController;
 
 import ci.gouv.dgbf.system.collectif.server.api.service.ExpenditureDto;
@@ -45,6 +46,16 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 				.setEntryAuthorization(expenditure.getEntryAuthorization() == null ? null : expenditure.getEntryAuthorization().getAdjustment())
 				.setPaymentCredit(expenditure.getPaymentCredit() == null ? null : expenditure.getPaymentCredit().getAdjustment())
 				).collect(Collectors.toList());
+	}
+	
+	@Override
+	public Response import_(String legislativeActVersionIdentifier) {
+		return serve(new Controller.Service() {			
+			@Override
+			public Response execute() {
+				return Expenditure.getService().import_(legislativeActVersionIdentifier, SessionHelper.getUserName());
+			}
+		});
 	}
 	
 	@Override

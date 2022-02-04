@@ -27,18 +27,18 @@ public class LegislativeActControllerImpl extends SpecificController.AbstractImp
 	}
 	
 	@Override
-	public Response updateDefaultVersion(String legislativeActIdentifier, String legislativeActVersionIdentifier) {
+	public Response updateDefaultVersion(String legislativeActVersionIdentifier) {
 		return serve(new Service() {			
 			@Override
 			public Response execute() {
-				return LegislativeAct.getService().updateDefaultVersion(legislativeActIdentifier, legislativeActVersionIdentifier, SessionHelper.getUserName());
+				return LegislativeAct.getService().updateDefaultVersion(legislativeActVersionIdentifier, SessionHelper.getUserName());
 			}
 		});
 	}
 	
 	@Override
-	public Response updateDefaultVersion(LegislativeAct legislativeAct, LegislativeActVersion legislativeActVersion) {
-		return updateDefaultVersion(legislativeAct == null ? null : legislativeAct.getIdentifier(), legislativeActVersion == null ? null : legislativeActVersion.getIdentifier());
+	public Response updateDefaultVersion(LegislativeActVersion legislativeActVersion) {
+		return updateDefaultVersion(legislativeActVersion == null ? null : legislativeActVersion.getIdentifier());
 	}
 	
 	@Override
