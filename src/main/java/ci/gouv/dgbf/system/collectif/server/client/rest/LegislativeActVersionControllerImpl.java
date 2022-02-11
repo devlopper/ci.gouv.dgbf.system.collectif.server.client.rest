@@ -36,6 +36,21 @@ public class LegislativeActVersionControllerImpl extends SpecificController.Abst
 	}
 	
 	@Override
+	public Response duplicate(String identifier) {
+		return serve(new Service() {
+			@Override
+			public Response execute() {
+				return LegislativeActVersion.getService().duplicate(identifier, SessionHelper.getUserName());
+			}		
+		});
+	}
+	
+	@Override
+	public Response duplicate(LegislativeActVersion legislativeActVersion) {
+		return duplicate(legislativeActVersion == null ? null : legislativeActVersion.getIdentifier());
+	}
+	
+	@Override
 	protected Class<LegislativeActVersion> getEntityClass() {
 		return LegislativeActVersion.class;
 	}

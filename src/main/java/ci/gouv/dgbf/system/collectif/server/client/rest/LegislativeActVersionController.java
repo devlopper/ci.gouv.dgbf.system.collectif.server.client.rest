@@ -12,4 +12,7 @@ public interface LegislativeActVersionController extends SpecificController<Legi
 	
 	Response create(String code,String name,Byte number,String legislativeActIdentifier);
 	Response create(LegislativeActVersion legislativeActVersion);
+	
+	Response duplicate(String identifier);
+	Response duplicate(LegislativeActVersion legislativeActVersion);
 }
