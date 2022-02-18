@@ -22,6 +22,7 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	@JsonbProperty(value = LegislativeActDto.JSON_IDENTIFIER) private String identifier;	
 	@JsonbProperty(value = LegislativeActDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = LegislativeActDto.JSON_NAME) private String name;
+	@JsonbProperty(value = LegislativeActDto.JSON_NUMBER) private Byte number;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE) private Exercise exercise;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_YEAR) private Short exerciseYear;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_AS_STRING) private String exerciseAsString;
@@ -50,6 +51,7 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	public static final String FIELD_IDENTIFIER = "identifier";
 	public static final String FIELD_CODE = "code";
 	public static final String FIELD_NAME = "name";
+	public static final String FIELD_NUMBER = "number";
 	public static final String FIELD_IN_PROGRESS = "inProgress";
 	public static final String FIELD_IN_PROGRESS_AS_STRING = "inProgressAsString";
 	public static final String FIELD_EXERCISE = "exercise";

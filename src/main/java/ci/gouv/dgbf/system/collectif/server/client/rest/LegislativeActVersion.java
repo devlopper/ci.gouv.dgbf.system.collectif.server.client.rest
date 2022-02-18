@@ -21,6 +21,8 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_NAME) private String name;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_NUMBER) private Byte number;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_IS_DEFAULT_VERSION) private Boolean isDefaultVersion;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_IS_DEFAULT_VERSION_AS_STRING) private String isDefaultVersionAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT) private LegislativeAct act;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_IDENTIFIER) private String actIdentifier;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_AS_STRING) private String actAsString;
@@ -46,6 +48,8 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	public static final String FIELD_CODE = "code";
 	public static final String FIELD_NAME = "name";
 	public static final String FIELD_NUMBER = "number";
+	public static final String FIELD_IS_DEFAULT_VERSION = "isDefaultVersion";
+	public static final String FIELD_IS_DEFAULT_VERSION_AS_STRING = "isDefaultVersionAsString";
 	public static final String FIELD_ACT = "act";
 	public static final String FIELD_ACT_AS_STRING = "actAsString";
 	public static final String FIELD_ACT_IDENTIFIER = "actIdentifier";
