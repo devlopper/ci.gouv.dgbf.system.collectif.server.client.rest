@@ -26,6 +26,7 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE) private Exercise exercise;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_YEAR) private Short exerciseYear;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_AS_STRING) private String exerciseAsString;
+	@JsonbProperty(value = LegislativeActDto.JSON_DEFAULT_VERSION_IDENTIFIER) private String defaultVersionIdentifier;
 	@JsonbProperty(value = LegislativeActDto.JSON_DEFAULT_VERSION_AS_STRING) private String defaultVersionAsString;
 	@JsonbProperty(value = LegislativeActDto.JSON_IN_PROGRESS) private Boolean inProgress;
 	@JsonbProperty(value = LegislativeActDto.JSON_IN_PROGRESS_AS_STRING) private String inProgressAsString;
