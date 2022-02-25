@@ -23,7 +23,7 @@ public class GeneratedAct extends AbstractObject implements Serializable {
 	//@JsonbProperty(value = GeneratedActDto.JSON_YEAR) private Short year;
 	//@JsonbProperty(value = GeneratedActDto.JSON_ENTRY_AUTHORIZATION_AMOUNT) private Long entryAuthorizationAmount;
 	//@JsonbProperty(value = GeneratedActDto.JSON_PAYMENT_CREDIT_AMOUNT) private Long paymentCreditAmount;
-	@JsonbProperty(value = GeneratedActDto.JSON___AUDIT__) private String audit;
+	@JsonbProperty(value = GeneratedActDto.JSON___AUDIT__) private String __audit__;
 	
 	@Override
 	public String toString() {
@@ -40,5 +40,5 @@ public class GeneratedAct extends AbstractObject implements Serializable {
 	//public static final String FIELD_YEAR = "year";
 	//public static final String FIELD_ENTRY_AUTHORIZATION_AMOUNT = "entryAuthorizationAmount";
 	//public static final String FIELD_PAYMENT_CREDIT_AMOUNT = "paymentCreditAmount";
-	public static final String FIELD_AUDIT = "audit";
+	public static final String FIELD___AUDIT__ = "__audit__";
 }
