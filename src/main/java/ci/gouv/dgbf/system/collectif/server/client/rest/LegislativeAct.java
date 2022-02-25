@@ -1,6 +1,7 @@
 package ci.gouv.dgbf.system.collectif.server.client.rest;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.json.bind.annotation.JsonbProperty;
@@ -22,6 +23,8 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	@JsonbProperty(value = LegislativeActDto.JSON_IDENTIFIER) private String identifier;	
 	@JsonbProperty(value = LegislativeActDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = LegislativeActDto.JSON_NAME) private String name;
+	@JsonbProperty(value = LegislativeActDto.JSON_DATE_AS_TIMESTAMP) private Long dateAsTimestamp;
+	private LocalDate date;
 	@JsonbProperty(value = LegislativeActDto.JSON_NUMBER) private Byte number;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE) private Exercise exercise;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_YEAR) private Short exerciseYear;

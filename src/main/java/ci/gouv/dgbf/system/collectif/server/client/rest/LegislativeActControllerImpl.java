@@ -1,6 +1,8 @@
 package ci.gouv.dgbf.system.collectif.server.client.rest;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.core.Response;
@@ -12,18 +14,18 @@ import org.cyk.utility.service.client.SpecificController;
 public class LegislativeActControllerImpl extends SpecificController.AbstractImpl<LegislativeAct> implements LegislativeActController,Serializable {
 
 	@Override
-	public Response create(String code, String name, String exerciseIdentifier) {
+	public Response create(String code, String name, String exerciseIdentifier,LocalDate date) {
 		return serve(new Service() {			
 			@Override
 			public Response execute() {
-				return LegislativeAct.getService().create(code, name, exerciseIdentifier, SessionHelper.getUserName());
+				return LegislativeAct.getService().create(code, name, exerciseIdentifier,date == null ? null : date.atStartOfDay().atZone(ZoneId.systemDefault()).toEpochSecond(), SessionHelper.getUserName());
 			}
 		});
 	}
 	
 	@Override
 	public Response create(LegislativeAct legislativeAct) {
-		return create(legislativeAct == null ? null : legislativeAct.getCode(), legislativeAct == null ? null : legislativeAct.getName(), legislativeAct.getExercise() == null ? null : legislativeAct.getExercise().getIdentifier());
+		return create(legislativeAct == null ? null : legislativeAct.getCode(), legislativeAct == null ? null : legislativeAct.getName(), legislativeAct.getExercise() == null ? null : legislativeAct.getExercise().getIdentifier(),legislativeAct.getDate());
 	}
 	
 	@Override
