@@ -2,12 +2,12 @@ package ci.gouv.dgbf.system.collectif.server.client.rest;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.ZoneId;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.core.Response;
 
 import org.cyk.utility.__kernel__.session.SessionHelper;
+import org.cyk.utility.__kernel__.time.TimeHelper;
 import org.cyk.utility.service.client.SpecificController;
 
 @ApplicationScoped
@@ -18,7 +18,7 @@ public class LegislativeActControllerImpl extends SpecificController.AbstractImp
 		return serve(new Service() {			
 			@Override
 			public Response execute() {
-				return LegislativeAct.getService().create(code, name, exerciseIdentifier,date == null ? null : date.atStartOfDay().atZone(ZoneId.systemDefault()).toEpochSecond(), SessionHelper.getUserName());
+				return LegislativeAct.getService().create(code, name, exerciseIdentifier,date == null ? null : TimeHelper.toMillisecond(date), SessionHelper.getUserName());
 			}
 		});
 	}

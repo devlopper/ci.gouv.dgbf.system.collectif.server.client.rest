@@ -25,6 +25,7 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_IS_DEFAULT_VERSION_AS_STRING) private String isDefaultVersionAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT) private LegislativeAct act;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_IDENTIFIER) private String actIdentifier;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_DATE_AS_TIMESTAMP) private Long actDateAsTimestamp;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_AS_STRING) private String actAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_COUNT) private Short generatedActCount;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_ACT_GENERATABLE) private Boolean actGeneratable;
