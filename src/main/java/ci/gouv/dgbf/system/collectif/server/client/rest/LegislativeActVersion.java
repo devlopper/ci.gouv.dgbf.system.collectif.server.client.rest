@@ -1,11 +1,13 @@
 package ci.gouv.dgbf.system.collectif.server.client.rest;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.json.bind.annotation.JsonbProperty;
 
 import org.cyk.utility.__kernel__.DependencyInjection;
 import org.cyk.utility.__kernel__.object.AbstractObject;
+import org.cyk.utility.__kernel__.time.TimeHelper;
 import org.cyk.utility.service.client.SpecificServiceGetter;
 
 import ci.gouv.dgbf.system.collectif.server.api.service.LegislativeActVersionDto;
@@ -26,6 +28,9 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT) private LegislativeAct act;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_IDENTIFIER) private String actIdentifier;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_DATE_AS_TIMESTAMP) private Long actDateAsTimestamp;
+	private LocalDate actDate;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_FROM_DATE_AS_TIMESTAMP) private Long actFromDateAsTimestamp;
+	private LocalDate actFromDate;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT_AS_STRING) private String actAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_COUNT) private Short generatedActCount;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_ACT_GENERATABLE) private Boolean actGeneratable;
@@ -35,6 +40,18 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_ENTRY_AUTHORIZATION) private EntryAuthorization entryAuthorization;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_PAYMENT_CREDIT) private PaymentCredit paymentCredit;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON___AUDIT__) String __audit__;
+	
+	public LocalDate getActDateFromTimestampIfNull() {
+		if(actDate == null && actDateAsTimestamp != null)
+			actDate = TimeHelper.getLocalDateFromMilliseconds(actDateAsTimestamp);
+		return actDate;	
+	}
+	
+	public LocalDate getFromActDateFromTimestampIfNull() {
+		if(actFromDate == null && actFromDateAsTimestamp != null)
+			actFromDate = TimeHelper.getLocalDateFromMilliseconds(actFromDateAsTimestamp);
+		return actFromDate;
+	}
 	
 	@Override
 	public String toString() {

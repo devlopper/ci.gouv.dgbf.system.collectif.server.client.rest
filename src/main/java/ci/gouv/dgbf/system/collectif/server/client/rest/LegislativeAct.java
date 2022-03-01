@@ -27,6 +27,7 @@ public class LegislativeAct extends AbstractObject implements Serializable {
 	private LocalDate date;
 	@JsonbProperty(value = LegislativeActDto.JSON_DATE_AS_TIMESTAMP) private Long dateAsTimestamp;
 	@JsonbProperty(value = LegislativeActDto.JSON_DATE_AS_STRING) private String dateAsString;
+	@JsonbProperty(value = LegislativeActDto.JSON_FROM_DATE_AS_STRING) private String fromDateAsString;
 	@JsonbProperty(value = LegislativeActDto.JSON_NUMBER) private Byte number;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE) private Exercise exercise;
 	@JsonbProperty(value = LegislativeActDto.JSON_EXERCISE_YEAR) private Short exerciseYear;
