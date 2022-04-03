@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
 import org.cyk.utility.__kernel__.collection.CollectionHelper;
 import org.cyk.utility.__kernel__.session.SessionHelper;
+import org.cyk.utility.persistence.query.Filter;
 import org.cyk.utility.rest.ResponseHelper;
 import org.cyk.utility.service.client.Controller;
 import org.cyk.utility.service.client.SpecificController;
@@ -54,6 +56,16 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 			@Override
 			public Response execute() {
 				return Expenditure.getService().import_(legislativeActVersionIdentifier, SessionHelper.getUserName());
+			}
+		});
+	}
+	
+	@Override
+	public Response getAmountsSums(Filter.Dto filter) {
+		return serve(new Controller.Service() {			
+			@Override
+			public Response execute() {
+				return Expenditure.getService().getAmountsSums(filter == null ? null : JsonbBuilder.create().toJson(filter));
 			}
 		});
 	}
