@@ -6,13 +6,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
 import org.cyk.utility.__kernel__.array.ArrayHelper;
 import org.cyk.utility.__kernel__.collection.CollectionHelper;
 import org.cyk.utility.__kernel__.session.SessionHelper;
+import org.cyk.utility.persistence.query.Filter;
 import org.cyk.utility.rest.ResponseHelper;
+import org.cyk.utility.service.client.Controller;
 import org.cyk.utility.service.client.SpecificController;
 
 import ci.gouv.dgbf.system.collectif.server.api.service.ResourceDto;
@@ -42,6 +45,16 @@ public class ResourceControllerImpl extends SpecificController.AbstractImpl<Reso
 	@Override
 	public Response adjust(Resource... resources) {
 		return adjust(ArrayHelper.isEmpty(resources) ? null : CollectionHelper.listOf(Boolean.TRUE, resources));
+	}
+	
+	@Override
+	public Response getAmountsSums(Filter.Dto filter) {
+		return serve(new Controller.Service() {			
+			@Override
+			public Response execute() {
+				return Resource.getService().getAmountsSums(filter == null ? null : JsonbBuilder.create().toJson(filter));
+			}
+		});
 	}
 	
 	@Override
