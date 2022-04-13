@@ -39,6 +39,7 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_GENERATED_ACT_DELETABLE_AS_STRING) private String generatedActDeletableAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_ENTRY_AUTHORIZATION) private EntryAuthorization entryAuthorization;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_PAYMENT_CREDIT) private PaymentCredit paymentCredit;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_REVENUE) private Revenue revenue;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON___AUDIT__) String __audit__;
 	
 	public LocalDate getActDateFromTimestampIfNull() {
