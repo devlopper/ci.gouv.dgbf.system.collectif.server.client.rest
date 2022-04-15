@@ -12,7 +12,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Getter @Setter @Accessors(chain=true)
-public class Amounts extends AbstractObject implements Serializable {
+public class Amounts extends AbstractObject implements ci.gouv.dgbf.system.collectif.server.api.persistence.Amounts,Serializable {
 
 	@JsonbProperty(value = AmountsDto.JSON_ADJUSTMENT) private Long adjustment;
 	@JsonbProperty(value = AmountsDto.JSON_EXPECTED_ADJUSTMENT) private Long expectedAdjustment;
