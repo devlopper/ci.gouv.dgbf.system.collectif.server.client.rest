@@ -25,6 +25,14 @@ public class Amounts extends AbstractObject implements Serializable {
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_MINUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT) private Long actualMinusMovementIncludedPlusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_PLUS_ADJUSTMENT) private Long actualPlusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_AVAILABLE) private Long available;
+	private Long availableMinusMovementIncludedPlusAdjustment;
+	
+	@Override
+	public String toString() {
+		return String.format(STRING_FORMAT, initial,movement,actual,movementIncluded,adjustment,actualPlusAdjustment,actualMinusMovementIncludedPlusAdjustment,available,availableMinusMovementIncludedPlusAdjustment);
+	}
+	
+	private static final String STRING_FORMAT = "INI=%s|MVT=%s|ACT=%s|MVI=%s|ADJ=%s|ACT+ADJ=%s|ACT-MVI+ADJ=%s|AVA=%s|AVA-MVI+ADJ=%s";
 	
 	public static final String FIELD_ADJUSTMENT = "adjustment";
 	public static final String FIELD_EXPECTED_ADJUSTMENT = "expectedAdjustment";
