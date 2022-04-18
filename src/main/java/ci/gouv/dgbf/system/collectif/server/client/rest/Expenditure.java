@@ -49,6 +49,38 @@ public class Expenditure extends AbstractObject implements Serializable {
 		return paymentCredit;
 	}
 	
+	public Expenditure copyMovementIncluded(Expenditure expenditure) {
+		if(expenditure == null)
+			return this;
+		getEntryAuthorization(Boolean.TRUE).copyMovementIncluded(expenditure.getEntryAuthorization());
+		getPaymentCredit(Boolean.TRUE).copyMovementIncluded(expenditure.getPaymentCredit());
+		return this;
+	}
+	
+	public Expenditure computeActualMinusMovementIncludedPlusAdjustment() {
+		if(entryAuthorization != null)
+			entryAuthorization.computeActualMinusMovementIncludedPlusAdjustment();
+		if(paymentCredit != null)
+			paymentCredit.computeActualMinusMovementIncludedPlusAdjustment();
+		return this;
+	}
+	
+	public Expenditure copyAvailable(Expenditure expenditure) {
+		if(expenditure == null)
+			return this;
+		getEntryAuthorization(Boolean.TRUE).copyAvailable(expenditure.getEntryAuthorization());
+		getPaymentCredit(Boolean.TRUE).copyAvailable(expenditure.getPaymentCredit());
+		return this;
+	}
+	
+	public Expenditure computeAvailableMinusMovementIncludedPlusAdjustment() {
+		if(entryAuthorization != null)
+			entryAuthorization.computeAvailableMinusMovementIncludedPlusAdjustment();
+		if(paymentCredit != null)
+			paymentCredit.computeAvailableMinusMovementIncludedPlusAdjustment();
+		return this;
+	}
+	
 	public static ExpenditureService getService() {
 		return (ExpenditureService) DependencyInjection.inject(SpecificServiceGetter.class).get(Expenditure.class);
 	}
