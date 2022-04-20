@@ -22,6 +22,7 @@ public class Activity extends AbstractObject implements Serializable {
 	@JsonbProperty(value = ActivityDto.JSON_EXPENDITURE_NATURE) private ExpenditureNature expenditureNature;
 	@JsonbProperty(value = ActivityDto.JSON_SECTION) private Section section;
 	@JsonbProperty(value = ActivityDto.JSON_ADMINISTRATIVE_UNIT) private AdministrativeUnit administrativeUnit;
+	@JsonbProperty(value = ActivityDto.JSON_BUDGET_CATEGORY) private BudgetCategory budgetCategory;
 	@JsonbProperty(value = ActivityDto.JSON_BUDGET_SPECIALIZATION_UNIT) private BudgetSpecializationUnit budgetSpecializationUnit;
 	@JsonbProperty(value = ActivityDto.JSON_ACTION) private Action action;
 	
