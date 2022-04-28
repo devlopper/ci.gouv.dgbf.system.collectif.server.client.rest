@@ -42,10 +42,10 @@ public class ApplicationLifeCycleListener {
 	}
 	
 	private static ConfigurationDto getServerConfiguration() {
-		if(CONFIGURATION == null) {
+		//if(CONFIGURATION == null) {
 			CONFIGURATION = DependencyInjection.inject(ServiceGetter.class).get(ConfigurationService.class).get();
-			LogHelper.logInfo(String.format("Server configuration has been got : %s",CONFIGURATION), ApplicationLifeCycleListener.class);
-		}
+			//LogHelper.logInfo(String.format("Server configuration has been got : %s",CONFIGURATION), ApplicationLifeCycleListener.class);
+		//}
 		return CONFIGURATION;
 	}
 	
