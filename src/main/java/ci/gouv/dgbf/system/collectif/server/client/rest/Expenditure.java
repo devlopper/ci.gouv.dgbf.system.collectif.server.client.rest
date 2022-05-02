@@ -27,9 +27,13 @@ public class Expenditure extends AbstractObject implements Serializable {
 	@JsonbProperty(value = ExpenditureDto.JSON_BUDGET_SPECIALIZATION_UNIT_AS_STRING) private String budgetSpecializationUnitAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_ACTION_AS_STRING) private String actionAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_ACTIVITY_AS_STRING) private String activityAsString;
+	@JsonbProperty(value = ExpenditureDto.JSON_ACTIVITY_CODE) private String activityCode;
 	@JsonbProperty(value = ExpenditureDto.JSON_ECONOMIC_NATURE_AS_STRING) private String economicNatureAsString;
+	@JsonbProperty(value = ExpenditureDto.JSON_ECONOMIC_NATURE_CODE) private String economicNatureCode;
 	@JsonbProperty(value = ExpenditureDto.JSON_FUNDING_SOURCE_AS_STRING) private String fundingSourceAsString;
+	@JsonbProperty(value = ExpenditureDto.JSON_FUNDING_SOURCE_CODE) private String fundingSourceCode;
 	@JsonbProperty(value = ExpenditureDto.JSON_LESSOR_AS_STRING) private String lessorAsString;
+	@JsonbProperty(value = ExpenditureDto.JSON_LESSOR_CODE) private String lessorCode;
 	
 	@JsonbProperty(value = ExpenditureDto.JSON___AUDIT__) String __audit__;
 	@JsonbProperty(value = ExpenditureDto.JSON___AUDIT_WHO__) String __auditWho__;
@@ -93,9 +97,13 @@ public class Expenditure extends AbstractObject implements Serializable {
 	public static final String FIELD_BUDGET_SPECIALIZATION_UNIT_AS_STRING = "budgetSpecializationUnitAsString";
 	public static final String FIELD_ACTION_AS_STRING = "actionAsString";
 	public static final String FIELD_ACTIVITY_AS_STRING = "activityAsString";
+	public static final String FIELD_ACTIVITY_CODE = "activityCode";
 	public static final String FIELD_ECONOMIC_NATURE_AS_STRING = "economicNatureAsString";
+	public static final String FIELD_ECONOMIC_NATURE_CODE = "economicNatureCode";
 	public static final String FIELD_FUNDING_SOURCE_AS_STRING = "fundingSourceAsString";
+	public static final String FIELD_FUNDING_SOURCE_CODE = "fundingSourceCode";
 	public static final String FIELD_LESSOR_AS_STRING = "lessorAsString";
+	public static final String FIELD_LESSOR_CODE = "lessorCode";
 	public static final String FIELD_ENTRY_AUTHORIZATION = "entryAuthorization";
 	public static final String FIELD_PAYMENT_CREDIT = "paymentCredit";
 	public static final String FIELD___AUDIT__ = "__audit__";
