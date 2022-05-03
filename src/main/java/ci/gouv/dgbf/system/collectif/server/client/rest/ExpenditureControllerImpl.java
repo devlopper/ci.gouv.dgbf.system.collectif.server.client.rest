@@ -83,8 +83,9 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 	private static List<ExpenditureDto.LoadDto> mapToLoadsDto(Collection<Expenditure> expenditures) {
 		if(CollectionHelper.isEmpty(expenditures))
 			return null;
-		return expenditures.stream().map(expenditure -> new ExpenditureDto.LoadDto()
-				.setActivity(expenditure.getActivityCode()).setEconomicNature(expenditure.getEconomicNatureCode()).setFundingSource(expenditure.getFundingSourceCode()).setLessor(expenditure.getLessorCode())		
+		return expenditures.stream().map(expenditure -> new ExpenditureDto.LoadDto().setIdentifier(expenditure.getIdentifier())
+				.setActivity(expenditure.getActivityCode()).setEconomicNature(expenditure.getEconomicNatureCode()).setFundingSource(expenditure.getFundingSourceCode()).setLessor(expenditure.getLessorCode())
+				.setEntryAuthorization(expenditure.getEntryAuthorizationAdjustment()).setPaymentCredit(expenditure.getPaymentCreditAdjustment())
 				).collect(Collectors.toList());
 	}
 	
@@ -92,5 +93,4 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 	protected Class<Expenditure> getEntityClass() {
 		return Expenditure.class;
 	}
-
 }

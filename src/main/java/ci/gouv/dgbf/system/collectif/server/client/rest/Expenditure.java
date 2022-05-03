@@ -19,7 +19,9 @@ public class Expenditure extends AbstractObject implements Serializable {
 
 	@JsonbProperty(value = ExpenditureDto.JSON_IDENTIFIER) private String identifier;	
 	@JsonbProperty(value = ExpenditureDto.JSON_ENTRY_AUTHORIZATION) private EntryAuthorization entryAuthorization;	
+	@JsonbProperty(value = ExpenditureDto.JSON_ENTRY_AUTHORIZATION_ADJUSTMENT) private Long entryAuthorizationAdjustment;	
 	@JsonbProperty(value = ExpenditureDto.JSON_PAYMENT_CREDIT) private PaymentCredit paymentCredit;
+	@JsonbProperty(value = ExpenditureDto.JSON_PAYMENT_CREDIT_ADJUSTMENT) private Long paymentCreditAdjustment;
 	@JsonbProperty(value = ExpenditureDto.JSON_BUDGETARY_ACT_AS_STRING) private String actAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_BUDGETARY_ACT_VERSION_AS_STRING) private String actVersionAsString;
 	@JsonbProperty(value = ExpenditureDto.JSON_SECTION_AS_STRING) private String sectionAsString;
