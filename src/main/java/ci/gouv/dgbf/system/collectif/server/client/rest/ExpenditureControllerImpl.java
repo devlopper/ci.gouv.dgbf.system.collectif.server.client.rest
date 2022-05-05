@@ -71,6 +71,16 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 	}
 	
 	@Override
+	public Response load(LegislativeActVersion legislativeActVersion,Collection<Expenditure> expenditures) {
+		return serve(new Controller.Service() {			
+			@Override
+			public Response execute() {
+				return Expenditure.getService().load(legislativeActVersion == null ? null : legislativeActVersion.getIdentifier(),mapToLoadsDto(expenditures),SessionHelper.getUserName());
+			}
+		});
+	}
+	
+	@Override
 	public Response verifyLoadable(LegislativeActVersion legislativeActVersion,Collection<Expenditure> expenditures) {
 		return serve(new Controller.Service() {			
 			@Override
