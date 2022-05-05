@@ -17,5 +17,5 @@ public interface ExpenditureController extends SpecificController<Expenditure> {
 	
 	Response getAmountsSums(Filter.Dto filter);
 	
-	Response verifyLoadable(Collection<Expenditure> expenditures);
+	Response verifyLoadable(LegislativeActVersion legislativeActVersion,Collection<Expenditure> expenditures);
 }

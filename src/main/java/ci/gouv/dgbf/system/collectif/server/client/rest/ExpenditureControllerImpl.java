@@ -71,11 +71,11 @@ public class ExpenditureControllerImpl extends SpecificController.AbstractImpl<E
 	}
 	
 	@Override
-	public Response verifyLoadable(Collection<Expenditure> expenditures) {
+	public Response verifyLoadable(LegislativeActVersion legislativeActVersion,Collection<Expenditure> expenditures) {
 		return serve(new Controller.Service() {			
 			@Override
 			public Response execute() {
-				return Expenditure.getService().verifyLoadable(mapToLoadsDto(expenditures));
+				return Expenditure.getService().verifyLoadable(legislativeActVersion == null ? null : legislativeActVersion.getIdentifier(),mapToLoadsDto(expenditures));
 			}
 		});
 	}
