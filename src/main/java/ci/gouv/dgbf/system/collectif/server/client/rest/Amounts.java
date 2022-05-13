@@ -15,6 +15,8 @@ import lombok.experimental.Accessors;
 public class Amounts extends AbstractObject implements ci.gouv.dgbf.system.collectif.server.api.persistence.Amounts,Serializable {
 
 	@JsonbProperty(value = AmountsDto.JSON_ADJUSTMENT) private Long adjustment;
+	@JsonbProperty(value = AmountsDto.JSON_ADJUSTMENT_LOWER_THAN_ZERO) Long adjustmentLowerThanZero;
+	@JsonbProperty(value = AmountsDto.JSON_ADJUSTMENT_GREATER_THAN_ZERO) Long adjustmentGreaterThanZero;
 	@JsonbProperty(value = AmountsDto.JSON_EXPECTED_ADJUSTMENT) private Long expectedAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_EXPECTED_ADJUSTMENT_MINUS_ADJUSTMENT) private Long expectedAdjustmentMinusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_INITIAL) private Long initial;
