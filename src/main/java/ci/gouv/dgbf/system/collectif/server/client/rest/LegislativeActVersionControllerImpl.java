@@ -51,6 +51,21 @@ public class LegislativeActVersionControllerImpl extends SpecificController.Abst
 	}
 	
 	@Override
+	public Response updateAdjustable(String identifier, Boolean adjustable) {
+		return serve(new Service() {
+			@Override
+			public Response execute() {
+				return LegislativeActVersion.getService().updateAdjustable(identifier, adjustable, SessionHelper.getUserName());
+			}
+		});
+	}
+	
+	@Override
+	public Response updateAdjustable(LegislativeActVersion legislativeActVersion) {
+		return updateAdjustable(legislativeActVersion.getIdentifier(), legislativeActVersion.getAdjustable());
+	}
+	
+	@Override
 	protected Class<LegislativeActVersion> getEntityClass() {
 		return LegislativeActVersion.class;
 	}

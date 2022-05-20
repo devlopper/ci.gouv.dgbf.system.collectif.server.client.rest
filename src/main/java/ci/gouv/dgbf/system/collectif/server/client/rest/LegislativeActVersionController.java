@@ -15,4 +15,7 @@ public interface LegislativeActVersionController extends SpecificController<Legi
 	
 	Response duplicate(String identifier);
 	Response duplicate(LegislativeActVersion legislativeActVersion);
+	
+	Response updateAdjustable(String identifier,Boolean adjustable);
+	Response updateAdjustable(LegislativeActVersion legislativeActVersion);
 }

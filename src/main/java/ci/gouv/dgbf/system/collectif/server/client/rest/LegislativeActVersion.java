@@ -23,6 +23,8 @@ public class LegislativeActVersion extends AbstractObject implements Serializabl
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_CODE) private String code;	
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_NAME) private String name;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_NUMBER) private Byte number;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_ADJUSTABLE) private Boolean adjustable;
+	@JsonbProperty(value = LegislativeActVersionDto.JSON_ADJUSTABLE_AS_STRING) private String adjustableAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_IS_DEFAULT_VERSION) private Boolean isDefaultVersion;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_IS_DEFAULT_VERSION_AS_STRING) private String isDefaultVersionAsString;
 	@JsonbProperty(value = LegislativeActVersionDto.JSON_LEGISLATIVE_ACT) private LegislativeAct act;
