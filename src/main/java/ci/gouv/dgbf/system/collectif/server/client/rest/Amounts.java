@@ -23,6 +23,7 @@ public class Amounts extends AbstractObject implements ci.gouv.dgbf.system.colle
 	@JsonbProperty(value = AmountsDto.JSON_MOVEMENT) private Long movement;
 	@JsonbProperty(value = AmountsDto.JSON_MOVEMENT_INCLUDED) private Long movementIncluded;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL) private Long actual;
+	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_AT_LEGISLATIVE_ACT_DATE) private Long actualAtLegislativeActDate;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_MINUS_MOVEMENT_INCLUDED) private Long actualMinusMovementIncluded;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_MINUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT) private Long actualMinusMovementIncludedPlusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_PLUS_ADJUSTMENT) private Long actualPlusAdjustment;
@@ -43,6 +44,7 @@ public class Amounts extends AbstractObject implements ci.gouv.dgbf.system.colle
 	public static final String FIELD_MOVEMENT = "movement";
 	public static final String FIELD_MOVEMENT_INCLUDED = "movementIncluded";
 	public static final String FIELD_ACTUAL = "actual";
+	public static final String FIELD_ACTUAL_AT_LEGISLATIVE_ACT_DATE = "actualAtLegislativeActDate";
 	public static final String FIELD_ACTUAL_MINUS_MOVEMENT_INCLUDED = "actualMinusMovementIncluded";
 	public static final String FIELD_ACTUAL_MINUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT = "actualMinusMovementIncludedPlusAdjustment";
 	public static final String FIELD_ACTUAL_PLUS_ADJUSTMENT = "actualPlusAdjustment";
