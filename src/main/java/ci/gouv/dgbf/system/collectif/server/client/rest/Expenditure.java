@@ -1,10 +1,13 @@
 package ci.gouv.dgbf.system.collectif.server.client.rest;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.json.bind.annotation.JsonbProperty;
 
 import org.cyk.utility.__kernel__.DependencyInjection;
+import org.cyk.utility.__kernel__.collection.CollectionHelper;
+import org.cyk.utility.__kernel__.method.MethodHelper;
 import org.cyk.utility.__kernel__.object.AbstractObject;
 import org.cyk.utility.service.client.SpecificServiceGetter;
 
@@ -63,6 +66,21 @@ public class Expenditure extends AbstractObject implements Serializable {
 		return this;
 	}
 	
+	public Expenditure computeAmountsByMethodsNames(Collection<String> names) {
+		if(CollectionHelper.isNotEmpty(names)) {
+			if(entryAuthorization != null)
+				MethodHelper.executeByNames(names,entryAuthorization);
+			if(paymentCredit != null)
+				MethodHelper.executeByNames(names,paymentCredit);
+		}
+		return this;
+	}
+	
+	public Expenditure computeAmountsByMethodsNames(String...names) {
+		return computeAmountsByMethodsNames(CollectionHelper.listOf(Boolean.TRUE, names));
+	}
+	
+	/*
 	public Expenditure computeActualMinusMovementIncludedPlusAdjustment() {
 		if(entryAuthorization != null)
 			entryAuthorization.computeActualMinusMovementIncludedPlusAdjustment();
@@ -71,6 +89,14 @@ public class Expenditure extends AbstractObject implements Serializable {
 		return this;
 	}
 	
+	public Expenditure computeInitialPlusMovementIncluded() {
+		if(entryAuthorization != null)
+			entryAuthorization.computeInitialPlusMovementIncluded();
+		if(paymentCredit != null)
+			paymentCredit.computeInitialPlusMovementIncluded();
+		return this;
+	}
+	*/
 	public Expenditure copyAvailable(Expenditure expenditure) {
 		if(expenditure == null)
 			return this;
@@ -78,7 +104,7 @@ public class Expenditure extends AbstractObject implements Serializable {
 		getPaymentCredit(Boolean.TRUE).copyAvailable(expenditure.getPaymentCredit());
 		return this;
 	}
-	
+	/*
 	public Expenditure computeAvailableMinusMovementIncludedPlusAdjustment() {
 		if(entryAuthorization != null)
 			entryAuthorization.computeAvailableMinusMovementIncludedPlusAdjustment();
@@ -86,7 +112,7 @@ public class Expenditure extends AbstractObject implements Serializable {
 			paymentCredit.computeAvailableMinusMovementIncludedPlusAdjustment();
 		return this;
 	}
-	
+	*/
 	public static ExpenditureService getService() {
 		return (ExpenditureService) DependencyInjection.inject(SpecificServiceGetter.class).get(Expenditure.class);
 	}

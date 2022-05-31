@@ -22,12 +22,17 @@ public class Amounts extends AbstractObject implements ci.gouv.dgbf.system.colle
 	@JsonbProperty(value = AmountsDto.JSON_INITIAL) private Long initial;
 	@JsonbProperty(value = AmountsDto.JSON_MOVEMENT) private Long movement;
 	@JsonbProperty(value = AmountsDto.JSON_MOVEMENT_INCLUDED) private Long movementIncluded;
+	@JsonbProperty(value = AmountsDto.JSON_INITIAL_PLUS_MOVEMENT_INCLUDED) private Long initialPlusMovementIncluded;
+	@JsonbProperty(value = AmountsDto.JSON_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT) private Long movementIncludedPlusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL) private Long actual;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_AT_LEGISLATIVE_ACT_DATE) private Long actualAtLegislativeActDate;
+	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_AT_LEGISLATIVE_ACT_DATE_PLUS_ADJUSTMENT) private Long actualAtLegislativeActDatePlusAdjustment;
+	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_AT_LEGISLATIVE_ACT_DATE_MINUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT) private Long actualAtLegislativeActDateMinusMovementIncludedPlusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_MINUS_MOVEMENT_INCLUDED) private Long actualMinusMovementIncluded;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_MINUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT) private Long actualMinusMovementIncludedPlusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_ACTUAL_PLUS_ADJUSTMENT) private Long actualPlusAdjustment;
 	@JsonbProperty(value = AmountsDto.JSON_AVAILABLE) private Long available;
+	@JsonbProperty(value = AmountsDto.JSON_INITIAL_PLUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT) private Long initialPlusMovementIncludedPlusAdjustment;
 	private Long availableMinusMovementIncludedPlusAdjustment;
 	
 	@Override
@@ -43,10 +48,15 @@ public class Amounts extends AbstractObject implements ci.gouv.dgbf.system.colle
 	public static final String FIELD_INITIAL = "initial";
 	public static final String FIELD_MOVEMENT = "movement";
 	public static final String FIELD_MOVEMENT_INCLUDED = "movementIncluded";
+	public static final String FIELD_INITIAL_PLUS_MOVEMENT_INCLUDED = "initialPlusMovementIncluded";
+	public static final String FIELD_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT = "movementIncludedPlusAdjustment";
 	public static final String FIELD_ACTUAL = "actual";
 	public static final String FIELD_ACTUAL_AT_LEGISLATIVE_ACT_DATE = "actualAtLegislativeActDate";
+	public static final String FIELD_ACTUAL_AT_LEGISLATIVE_ACT_DATE_PLUS_ADJUSTMENT = "actualAtLegislativeActDatePlusAdjustment";
+	public static final String FIELD_ACTUAL_AT_LEGISLATIVE_ACT_DATE_MINUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT = "actualAtLegislativeActDateMinusMovementIncludedPlusAdjustment";
 	public static final String FIELD_ACTUAL_MINUS_MOVEMENT_INCLUDED = "actualMinusMovementIncluded";
 	public static final String FIELD_ACTUAL_MINUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT = "actualMinusMovementIncludedPlusAdjustment";
 	public static final String FIELD_ACTUAL_PLUS_ADJUSTMENT = "actualPlusAdjustment";
 	public static final String FIELD_AVAILABLE = "available";
+	public static final String FIELD_INITIAL_PLUS_MOVEMENT_INCLUDED_PLUS_ADJUSTMENT = "initialPlusMovementIncludedPlusAdjustment";
 }
