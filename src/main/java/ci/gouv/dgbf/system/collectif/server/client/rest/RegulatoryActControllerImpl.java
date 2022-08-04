@@ -1,6 +1,7 @@
 package ci.gouv.dgbf.system.collectif.server.client.rest;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -51,6 +52,42 @@ public class RegulatoryActControllerImpl extends SpecificController.AbstractImpl
 		} catch (WebApplicationException exception) {
 			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
 		}
+	}
+	
+	@Override
+	public Response includeComprehensively(Collection<String> regulatoryActsIdentifiers,String legislativeActVersionIdentifier,String auditWho) {
+		try {
+			if(regulatoryActsIdentifiers == null)
+				regulatoryActsIdentifiers = new ArrayList<>();
+			return RegulatoryAct.getService().includeComprehensively((List<String>) regulatoryActsIdentifiers, legislativeActVersionIdentifier,auditWho);
+		} catch (WebApplicationException exception) {
+			throw new RuntimeException(ResponseHelper.getEntity(String.class, exception.getResponse()));
+		}
+	}
+	
+	@Override
+	public Response includeComprehensively(Collection<String> regulatoryActsIdentifiers,String legislativeActVersionIdentifier) {
+		return includeComprehensively((List<String>) regulatoryActsIdentifiers, legislativeActVersionIdentifier,SessionHelper.getUserName());
+	}
+
+	@Override
+	public Response includeComprehensively(String legislativeActVersionIdentifier,String auditWho,String... regulatoryActsIdentifiers) {
+		return includeComprehensively(CollectionHelper.listOf(Boolean.TRUE,regulatoryActsIdentifiers), legislativeActVersionIdentifier,auditWho);
+	}
+	
+	@Override
+	public Response includeComprehensively(String legislativeActVersionIdentifier,String... regulatoryActsIdentifiers) {
+		return includeComprehensively(CollectionHelper.listOf(Boolean.TRUE,regulatoryActsIdentifiers), legislativeActVersionIdentifier,SessionHelper.getUserName());
+	}
+	
+	@Override
+	public Response includeComprehensively(Collection<RegulatoryAct> regulatoryActs,LegislativeActVersion legislativeActVersion) {
+		return includeComprehensively(FieldHelper.readSystemIdentifiersAsStrings(regulatoryActs), legislativeActVersion == null ? null : legislativeActVersion.getIdentifier());
+	}
+
+	@Override
+	public Response includeComprehensively(LegislativeActVersion legislativeActVersion,RegulatoryAct... regulatoryActs) {
+		return includeComprehensively(CollectionHelper.listOf(Boolean.TRUE,regulatoryActs), legislativeActVersion);
 	}
 	
 	@Override

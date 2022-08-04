@@ -30,7 +30,7 @@ public class RegulatoryAct extends AbstractObject implements Serializable {
 	
 	@Override
 	public String toString() {
-		return code+" "+name;
+		return name;
 	}
 	
 	public static RegulatoryActService getService() {
